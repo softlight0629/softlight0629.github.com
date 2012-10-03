@@ -1,0 +1,55 @@
+/**  清除内外边距  **/
+body, h1, h2, h3, h4 ,h5, h6, hr, p, blockquote, /** 结构元素 **/
+dl, dt, dd, ul, ol, li, /** 列表元素 **/
+pre, /** 文本格式元素 **/
+form, fieldset, legend, button, input, textarea, /** 表单元素 **/
+th, td, /** 表格元素 */
+img /** 图片元素 **/ {
+	border:medium none;
+	margin: 0;
+	padding: 0;
+}
+
+/** 设置默认字体 **/
+body, button, input, select, textarea {
+	font: 12px/1.5 '宋体', tahoma, Srial, helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {font-size: 100%;}
+em{font-style:normal;}
+
+/** 重置列表元素 **/
+ul, ol {list-style: none}
+/** 重置超链接元素 **/
+a {text-decoration: none; color: #333;}
+a:hover {text-decoration: underline; color:#f40;}
+/** 重置图片元素 **/
+img{border:0px;}
+/** 重置表格元素 **/
+table {border-collapse: collapse;; border-spacing: 0;}
+
+
+/**
+css规范
+
+名称一律小写，多个单词用连字符（-）连接。名称中只能出现英文字母，数字，连字符。例如：main-nav
+名称尽量使用英文单词命名。找不到，在考虑适用中文拼音。对于中国以及淘宝特色词汇，可以使用拼音。例如：wangwang（旺旺） daigou（代沟） xiaobao。除了产品名称和特色词汇，严禁使用拼音。
+在不影响语义的情况下，id和class中可以适当的适用英文单词缩写。例如col、hd。切务自造缩写。
+id和class名称中的第一个词必须是单词全拼或语义非常清晰的单词缩写，比如present, col（栏目）。
+能以背景形式呈现的图片，尽量写入到CSS样式中
+公用CSS文件reset.css、global.css，每个页面必须都要引入。且不可以随意修改里面的代码。
+class和id的使用：id是唯一的，class是可以重复的，所以在大的的模块中使用id，重复使用频率高的使用class。
+在JavaScript中当作（钩子）hook用的id和class, 命名规则为J-UpperCamelCase（请注意，J-后的首字母也大写！）, 其中字母J代表JavaScript, 也是钩子（hook）的象形。命名规范：J-产品代号-命名。注意：如果在JavaScript和CSS中都需要用到，则不用遵守本约定。
+为了避免和全部样式和淘宝现有产品产生混淆以及冲突，class命名规范：c-产品代号-模块名（c来源于cubee的首字母）
+必须为大区块样式添加注释，小区块适量注释。
+建议CSS属性的编写顺序：布局定位→自身→文本→其他：
+布局定位属性：margin\padding\float\position(right,left,top,bottom)\overflow……
+自身属性：width\height\border\background……
+文本属性：font\text-align\color……
+其他属性：zoom\cursor……
+
+**/
+
+
+
+
