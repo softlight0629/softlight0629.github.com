@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>有限状态机</title>
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="StateMachine.js"></script>
+</head>
+<style type="text/css">
+  #con1, #con2 {display: none;}
+  #con1.active, #con2.active{display:block;}
+</style>
+<body>
+	<div id="con1"> I'm con1</div>
+	<div id="con2">I'm con2</div>
+	<input id="btn-con1" type="button" value="con1 ative"/>
+	<input id="btn-con2" type="button" value="con2 active">
+
+<script type="text/javascript">
+  (function(){
+  	var con1 = {
+  	  id: "con1",
+  	  activate: function(){
+  	    $("#con1").addClass("active");
+  	  },
+
+  	  deactivate: function() {
+  	    $("#con1").removeClass("active");	  	
+  	  }
+  	};
+
+  	var con2 = {
+  	  id: "con2",
+  	  activate: function(){
+  	  	$("#con2").addClass("active");
+  	  },
+
+  	  deactivate: function(){
+  	  	$("#con2").removeClass("active");
+  	  }
+  	};
+
+  	var sm = new StateMachine;
+  	sm.add(con1);
+  	sm.add(con2);
+
+  	$("#btn-con1").click(function(){ con1.active(); });
+  	$("#btn-con2").click(function(){ con2.active(); });
+
+
+
+
+  })(jQuery)
+
+</script>
+
+</body>
+</html>

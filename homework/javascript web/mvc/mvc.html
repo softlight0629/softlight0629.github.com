@@ -1,9 +1,83 @@
 <html>
 <head>
+  <meta charset="utf-8">
 	<title>mvc</title>
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
 	<script type="text/javascript" src="Model.js"></script>
+	<script type="text/javascript" src="Controller.js"></script>
 </head>
 <body>
+mvc 模式
+
+
+<div id="users">
+  <form action="">
+    <input type="search" name="" id="">
+    <input type="button" value="submit">
+  </form>
+</div>
+
+<script type="text/javascript">
+
+var exports = this;
+
+jQuery(function($){
+  exports.SearchView = Controller.create({
+    elements: {
+      "input[type=search]": "searchInput",
+      "form": "searchForm"
+    },
+
+    events: {
+      "click form": "search"
+    },
+
+    init: function(element){
+      this.el = $(element);
+      this.refreshElements();
+      this.delegateEvents();
+    },
+
+    search: function(){
+      console.log("Searching:", this.searchInput.val());
+    },
+
+    $: function(selector){
+      return $(selector, this.el);
+    },
+
+    eventSpilitter:/^(\w+)\s*(.*)$/,
+
+    delegateEvents: function(){
+      for (var key in this.events) {
+        var methodName = this.events[key];
+        var method = this.proxy(this[methodName]);
+
+        var match = key.match(this.eventSpilitter);
+        var eventName = match[1], selector = match[2];
+        if (selector === '') {
+          this.el.bind(eventName, method);
+        } else {
+          this.el.delegate(selector, eventName, method);
+        }
+      }
+
+    },
+
+    refreshElements: function(){
+      for (var key in this.elements) {
+        console.log(this.elements[key]);
+        this[this.elements[key]] = this.$(key);
+      }
+    }
+
+  });
+
+  new SearchView("#users");
+
+});
+
+</script>
 
 </body>
 </html>
