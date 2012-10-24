@@ -16,6 +16,6 @@ class Metal
 end
 
 ins = Metal.new()
-Metal.classvar
+Metal.classvar # print 'class variable'
 ins.var="instance variable"
-ins.var
+ins.var # print 'intance variable'
